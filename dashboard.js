@@ -118,8 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const backdrop = document.getElementById('megaBackdrop');
     if (backdrop) backdrop.addEventListener('click', () => toggleMegaMenu(false));
 
-    // Mega-menu chips → switchTab + close menu
-    document.querySelectorAll('.chip[data-tab]').forEach(c => {
+    // Mega-menu items → switchTab + close menu
+    document.querySelectorAll('.menu-item[data-tab]').forEach(c => {
         c.addEventListener('click', () => {
             const id = c.getAttribute('data-tab');
             const tabBtn = document.querySelector(`.ctx-tab[data-tab="${id}"]`);

@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BirCalc — Dashboard</title>
+    <title>BirCalc — Maaş Hesablama</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 
@@ -18,20 +20,27 @@
     <!-- BLUR HEADER -->
     <header class="topbar">
         <div class="topbar-left">
-            <a class="brand">
-                <div class="brand-mark"><i class="fa-solid fa-bolt-lightning"></i></div>
+            <a class="brand" href="#">
+                <div class="brand-mark"><i class="fa-solid fa-calculator"></i></div>
                 <span>BirCalc</span>
             </a>
+
             <button class="menu-trigger" id="menuTrigger" type="button">
-                <i class="fa-solid fa-grip"></i>
                 <span>Menyu</span>
-                <i class="fa-solid fa-chevron-down" style="font-size:0.6rem"></i>
+                <i class="fa-solid fa-chevron-down chev"></i>
             </button>
-            <div class="page-title" id="pageTitle">Fərdi hesablama</div>
+
+            <div class="topbar-divider"></div>
+
+            <div>
+                <div class="page-title" id="pageTitle">Fərdi hesablama</div>
+                <div class="page-subtitle" id="pageSubtitle">Gross ↔ Nett kalkulyatoru</div>
+            </div>
         </div>
+
         <div class="topbar-right">
             <button class="topbar-btn customize-btn" id="customizeBtn" type="button" title="Dashboard-u fərdiləşdir">
-                <i class="fa-solid fa-sliders"></i>
+                <i class="fa-solid fa-table-cells-large"></i>
                 <span>Fərdiləşdir</span>
             </button>
             <button class="topbar-btn icon-btn" type="button" title="Bildirişlər">
@@ -45,29 +54,43 @@
     <!-- MEGA MENU -->
     <div class="mega-backdrop" id="megaBackdrop"></div>
     <div class="mega-menu" id="megaMenu">
-        <div class="mega-section">
-            <div class="mega-section-title">Hesablama Rejimləri</div>
-            <div class="mega-chips">
-                <a class="chip active" data-tab="individual"><i class="fa-solid fa-user"></i>Fərdi</a>
-                <a class="chip" data-tab="bulk"><i class="fa-solid fa-layer-group"></i>Toplu</a>
-                <a class="chip" data-tab="transfer"><i class="fa-solid fa-arrow-right-arrow-left"></i>Transfer &amp; Promotion</a>
-                <a class="chip" data-tab="massgrowth"><i class="fa-solid fa-chart-line"></i>Kütləvi artımlar</a>
-                <a class="chip" data-tab="texnopar"><i class="fa-solid fa-microchip"></i>Texnopar</a>
-            </div>
-        </div>
-        <div class="mega-section">
-            <div class="mega-section-title">LMS Bölmələri</div>
-            <div class="mega-chips">
-                <a class="chip"><i class="fa-solid fa-house"></i>Dashboard</a>
-                <a class="chip"><i class="fa-solid fa-users"></i>İşçilər</a>
-                <a class="chip"><i class="fa-solid fa-file-invoice-dollar"></i>Maaşlar</a>
-                <a class="chip"><i class="fa-solid fa-graduation-cap"></i>Təlimlər</a>
-                <a class="chip"><i class="fa-solid fa-clipboard-list"></i>Hesabatlar</a>
-                <a class="chip"><i class="fa-solid fa-bullhorn"></i>Elanlar</a>
-                <a class="chip"><i class="fa-solid fa-calendar-days"></i>Təqvim</a>
-                <a class="chip"><i class="fa-solid fa-comments"></i>Mesajlar</a>
-                <a class="chip"><i class="fa-solid fa-gear"></i>Tənzimləmələr</a>
-            </div>
+        <div class="mega-section-title">Hesablama Rejimləri</div>
+        <div class="mega-grid">
+            <a class="menu-item active" data-tab="individual">
+                <div class="menu-icon"><i class="fa-solid fa-user"></i></div>
+                <div class="menu-text">
+                    <div class="menu-title">Fərdi</div>
+                    <div class="menu-desc">Tək işçi üçün gross ↔ nett dönüşümü və tutulmalar</div>
+                </div>
+            </a>
+            <a class="menu-item" data-tab="bulk">
+                <div class="menu-icon"><i class="fa-solid fa-layer-group"></i></div>
+                <div class="menu-text">
+                    <div class="menu-title">Toplu</div>
+                    <div class="menu-desc">Excel ilə çoxlu işçinin maaşlarını birdəfəyə hesabla</div>
+                </div>
+            </a>
+            <a class="menu-item" data-tab="transfer">
+                <div class="menu-icon"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
+                <div class="menu-text">
+                    <div class="menu-title">Transfer &amp; Promotion</div>
+                    <div class="menu-desc">Rotasiya və promotion zamanı maaşın hesablanması</div>
+                </div>
+            </a>
+            <a class="menu-item" data-tab="massgrowth">
+                <div class="menu-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <div class="menu-text">
+                    <div class="menu-title">Kütləvi artımlar</div>
+                    <div class="menu-desc">Yemək pulu + gross artım məntiqi, filial/baş ofis min</div>
+                </div>
+            </a>
+            <a class="menu-item" data-tab="texnopar">
+                <div class="menu-icon"><i class="fa-solid fa-microchip"></i></div>
+                <div class="menu-text">
+                    <div class="menu-title">Texnopar</div>
+                    <div class="menu-desc">Local / Expat üçün xüsusi vergi və DSMF qaydaları</div>
+                </div>
+            </a>
         </div>
     </div>
 
@@ -100,7 +123,7 @@
 
     <main class="container">
 
-        <!-- Salary alert (recruitment N2G) -->
+        <!-- Salary alert -->
         <div id="salaryAlert" class="alert-banner" style="display:none;">
             <span id="alertText">Məbləğ bu aralıqda ola bilməz.</span>
             <div class="alert-btns">
@@ -109,8 +132,8 @@
             </div>
         </div>
 
-        <!-- CONTROLS CARD (input form) -->
-        <section class="surface controls-card">
+        <!-- CONTROLS CARD -->
+        <section class="surface">
             <div class="controls-row">
                 <div class="form-group w-salary">
                     <label id="inputLabelSalary">Məbləğ (AZN)</label>
@@ -185,12 +208,12 @@
             </div>
         </section>
 
-        <!-- INDIVIDUAL — DASHBOARD WITH DRAGGABLE TILES -->
+        <!-- INDIVIDUAL — DRAGGABLE TILES -->
         <div id="individual" class="tab-pane active">
             <div class="tile-grid" id="tileGrid">
 
                 <div class="tile" data-tile="nett" data-span="3">
-                    <div class="tile-grip" title="Sürüşdür"><i class="fa-solid fa-grip-vertical"></i></div>
+                    <div class="tile-grip"><i class="fa-solid fa-grip-vertical"></i></div>
                     <div class="kpi-card primary">
                         <div class="kpi-icon"><i class="fa-solid fa-wallet"></i></div>
                         <div class="kpi-label">NETT</div>
@@ -200,7 +223,7 @@
                 </div>
 
                 <div class="tile" data-tile="gross" data-span="3">
-                    <div class="tile-grip" title="Sürüşdür"><i class="fa-solid fa-grip-vertical"></i></div>
+                    <div class="tile-grip"><i class="fa-solid fa-grip-vertical"></i></div>
                     <div class="kpi-card dark">
                         <div class="kpi-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
                         <div class="kpi-label" id="label-gross">GROSS</div>
@@ -210,9 +233,9 @@
                 </div>
 
                 <div class="tile" data-tile="deductions" data-span="3">
-                    <div class="tile-grip" title="Sürüşdür"><i class="fa-solid fa-grip-vertical"></i></div>
+                    <div class="tile-grip"><i class="fa-solid fa-grip-vertical"></i></div>
                     <div class="kpi-card">
-                        <div class="kpi-icon teal"><i class="fa-solid fa-circle-minus"></i></div>
+                        <div class="kpi-icon"><i class="fa-solid fa-circle-minus"></i></div>
                         <div class="kpi-label" id="label-k1">Cəmi Tutulmalar</div>
                         <div class="kpi-val" id="val-k1">0.00</div>
                         <div id="mealNotice" class="kpi-mini-notice" style="display:none;">
@@ -223,20 +246,20 @@
                 </div>
 
                 <div class="tile" data-tile="taxable" data-span="3">
-                    <div class="tile-grip" title="Sürüşdür"><i class="fa-solid fa-grip-vertical"></i></div>
+                    <div class="tile-grip"><i class="fa-solid fa-grip-vertical"></i></div>
                     <div class="kpi-card">
-                        <div class="kpi-icon teal"><i class="fa-solid fa-percent"></i></div>
+                        <div class="kpi-icon"><i class="fa-solid fa-percent"></i></div>
                         <div class="kpi-label" id="label-k2">Vergiyə cəlb olunan</div>
                         <div class="kpi-val" id="val-k2">0.00</div>
                     </div>
                 </div>
 
                 <div class="tile" data-tile="details" data-span="12">
-                    <div class="tile-grip" title="Sürüşdür"><i class="fa-solid fa-grip-vertical"></i></div>
+                    <div class="tile-grip"><i class="fa-solid fa-grip-vertical"></i></div>
                     <div class="details-card">
                         <div class="details-header">
                             <h3><i class="fa-solid fa-list-check"></i>Hesablanmış Detallar</h3>
-                            <button class="ebtn ebtn-ghost" style="background:var(--ink-50); color:var(--ink-700); border-color:var(--border);" onclick="window.print()">
+                            <button class="btn-link" onclick="window.print()">
                                 <i class="fa-solid fa-print"></i> Çap et
                             </button>
                         </div>
@@ -262,12 +285,12 @@
                     <input type="file" id="fileIn" accept=".xlsx, .csv" style="display:none" onchange="handleFile(event)">
                 </div>
 
-                <div id="bulk-results" style="display:none; margin-top:24px;">
+                <div id="bulk-results" style="display:none; margin-top:22px;">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-                        <span style="font-weight:800; font-size:0.85rem; color:var(--ink-500);">
-                            NƏTİCƏ: <span id="bk-count" style="color:var(--teal-600)">0</span> İŞÇİ HESABLANDI
+                        <span style="font-weight:600; font-size:0.85rem; color:hsl(var(--muted-foreground));">
+                            NƏTİCƏ: <span id="bk-count" style="color:hsl(var(--primary)); font-weight:800;">0</span> İŞÇİ HESABLANDI
                         </span>
-                        <button class="btn-action" style="width:auto; padding:10px 22px; background:linear-gradient(135deg,#16a34a,#0d8b3b); margin:0;" onclick="exportResults()">
+                        <button class="btn-action" style="width:auto; padding:10px 22px; background:hsl(var(--green)); margin:0;" onclick="exportResults()">
                             <i class="fa-solid fa-download"></i> EXCEL-Ə ÇIXAR
                         </button>
                     </div>
@@ -371,7 +394,7 @@
                             </div>
                             <div class="tp-field">
                                 <label>Gross (Baza Net-dən) ★</label>
-                                <input type="text" id="tp-prop-gross-from-base-net" class="tp-input auto-green" readonly placeholder="0.00" style="border-color:var(--teal-500); border-width:2px;">
+                                <input type="text" id="tp-prop-gross-from-base-net" class="tp-input auto-green" readonly placeholder="0.00" style="border-color:hsl(var(--primary)); border-width:2px;">
                             </div>
                         </div>
                     </div>
@@ -468,11 +491,11 @@
                             </div>
                             <div class="tp-field">
                                 <label>Yeni Gross ★</label>
-                                <input type="text" id="mg-new-gross" class="tp-input auto-green" readonly placeholder="0.00" style="border-color:var(--teal-500); border-width:2px;">
+                                <input type="text" id="mg-new-gross" class="tp-input auto-green" readonly placeholder="0.00" style="border-color:hsl(var(--primary)); border-width:2px;">
                             </div>
                             <div class="tp-field">
                                 <label>Yeni Yemək Pulu ★</label>
-                                <input type="text" id="mg-new-meal" class="tp-input auto-blue" readonly placeholder="0.00" style="border-color:var(--teal-500); border-width:2px;">
+                                <input type="text" id="mg-new-meal" class="tp-input auto-blue" readonly placeholder="0.00" style="border-color:hsl(var(--primary)); border-width:2px;">
                             </div>
                         </div>
                     </div>
@@ -501,8 +524,8 @@
 
                 <hr class="tp-divider">
                 <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
-                    <div style="font-size:0.72rem; font-weight:800; color:var(--ink-500); text-transform:uppercase; letter-spacing:0.05em;">
-                        <i class="fa-solid fa-layer-group" style="color:var(--teal-500); margin-right:6px;"></i>
+                    <div style="font-size:0.74rem; font-weight:600; color:hsl(var(--muted-foreground)); text-transform:uppercase; letter-spacing:0.05em;">
+                        <i class="fa-solid fa-layer-group" style="color:hsl(var(--primary)); margin-right:6px;"></i>
                         Toplu Yükləmə
                     </div>
                     <button class="alert-btn alt" onclick="mgDownloadTemplate()">
@@ -522,10 +545,10 @@
 
                 <div id="mg-bulk-results" style="display:none; margin-top:20px;">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                        <span style="font-weight:800; font-size:0.82rem; color:var(--ink-500);">
-                            NƏTİCƏ: <span id="mg-bk-count" style="color:var(--teal-600)">0</span> İŞÇİ HESABLANDI
+                        <span style="font-weight:600; font-size:0.82rem; color:hsl(var(--muted-foreground));">
+                            NƏTİCƏ: <span id="mg-bk-count" style="color:hsl(var(--primary)); font-weight:800;">0</span> İŞÇİ HESABLANDI
                         </span>
-                        <button class="btn-action" style="width:auto; padding:10px 22px; background:linear-gradient(135deg,#16a34a,#0d8b3b); margin:0;" onclick="mgExportResults()">
+                        <button class="btn-action" style="width:auto; padding:10px 22px; background:hsl(var(--green)); margin:0;" onclick="mgExportResults()">
                             <i class="fa-solid fa-download"></i> EXCEL-Ə ÇIXAR
                         </button>
                     </div>
@@ -618,11 +641,11 @@
                             </div>
                             <div class="tp-field">
                                 <label>Yeni Gross ★</label>
-                                <input type="text" id="tx-new-gross" class="tp-input auto-green" readonly placeholder="0.00" style="border-color:var(--teal-500); border-width:2px;">
+                                <input type="text" id="tx-new-gross" class="tp-input auto-green" readonly placeholder="0.00" style="border-color:hsl(var(--primary)); border-width:2px;">
                             </div>
                             <div class="tp-field">
                                 <label>Yeni Yemək Pulu ★</label>
-                                <input type="text" id="tx-new-meal" class="tp-input auto-blue" readonly placeholder="0" style="border-color:var(--teal-500); border-width:2px;">
+                                <input type="text" id="tx-new-meal" class="tp-input auto-blue" readonly placeholder="0" style="border-color:hsl(var(--primary)); border-width:2px;">
                             </div>
                         </div>
                     </div>
@@ -651,8 +674,8 @@
 
                 <hr class="tp-divider">
                 <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
-                    <div style="font-size:0.72rem; font-weight:800; color:var(--ink-500); text-transform:uppercase; letter-spacing:0.05em;">
-                        <i class="fa-solid fa-layer-group" style="color:var(--teal-500); margin-right:6px;"></i>
+                    <div style="font-size:0.74rem; font-weight:600; color:hsl(var(--muted-foreground)); text-transform:uppercase; letter-spacing:0.05em;">
+                        <i class="fa-solid fa-layer-group" style="color:hsl(var(--primary)); margin-right:6px;"></i>
                         Toplu Yükləmə
                     </div>
                     <button class="alert-btn alt" onclick="txDownloadTemplate()">
@@ -672,10 +695,10 @@
 
                 <div id="tx-bulk-results" style="display:none; margin-top:20px;">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                        <span style="font-weight:800; font-size:0.82rem; color:var(--ink-500);">
-                            NƏTİCƏ: <span id="tx-bk-count" style="color:var(--teal-600)">0</span> İŞÇİ HESABLANDI
+                        <span style="font-weight:600; font-size:0.82rem; color:hsl(var(--muted-foreground));">
+                            NƏTİCƏ: <span id="tx-bk-count" style="color:hsl(var(--primary)); font-weight:800;">0</span> İŞÇİ HESABLANDI
                         </span>
-                        <button class="btn-action" style="width:auto; padding:10px 22px; background:linear-gradient(135deg,#16a34a,#0d8b3b); margin:0;" onclick="txExportResults()">
+                        <button class="btn-action" style="width:auto; padding:10px 22px; background:hsl(var(--green)); margin:0;" onclick="txExportResults()">
                             <i class="fa-solid fa-download"></i> EXCEL-Ə ÇIXAR
                         </button>
                     </div>
@@ -697,20 +720,24 @@
 
     </main>
 
-    <!-- EDIT BAR (Customize mode bottom strip) -->
+    <!-- EDIT BAR (full-width bottom strip, UP LMS style) -->
     <div class="edit-bar" id="editBar">
-        <span class="eb-msg">
-            <i class="fa-solid fa-arrows-up-down-left-right"></i>
-            Fərdiləşdirmə rejimi — kartları sürüşdürərək sıralayın
-        </span>
-        <div class="edit-bar-btns">
-            <button class="ebtn ebtn-ghost" onclick="resetTiles()">
-                <i class="fa-solid fa-rotate-left"></i> Reset
-            </button>
-            <button class="ebtn ebtn-ghost" onclick="cancelCustomize()">Cancel</button>
-            <button class="ebtn ebtn-primary" onclick="saveCustomize()">
-                <i class="fa-solid fa-check"></i> Save
-            </button>
+        <div class="edit-bar-inner">
+            <span class="eb-msg">
+                <i class="fa-solid fa-arrows-up-down-left-right"></i>
+                Fərdiləşdirmə rejimi — kartları sürüşdürərək sıralayın
+            </span>
+            <div class="edit-bar-btns">
+                <button class="ebtn ebtn-ghost" onclick="resetTiles()">
+                    <i class="fa-solid fa-rotate-left"></i> Reset
+                </button>
+                <button class="ebtn ebtn-outline" onclick="cancelCustomize()">
+                    <i class="fa-solid fa-xmark"></i> Cancel
+                </button>
+                <button class="ebtn ebtn-primary" onclick="saveCustomize()">
+                    <i class="fa-solid fa-check"></i> Save
+                </button>
+            </div>
         </div>
     </div>
 

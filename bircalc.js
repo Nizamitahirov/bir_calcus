@@ -26,18 +26,20 @@ function switchTab(id, el) {
         const tabBtn = document.querySelector(`.ctx-tab[data-tab="${id}"]`);
         if (tabBtn) tabBtn.classList.add('active');
     }
-    // Update page title
+    // Update page title + subtitle
     const titles = {
-        individual: 'Fərdi hesablama',
-        bulk: 'Toplu hesablama',
-        transfer: 'Transfer & Promotion',
-        massgrowth: 'Kütləvi artımlar',
-        texnopar: 'Texnopar'
+        individual: ['Fərdi hesablama', 'Gross ↔ Nett kalkulyatoru'],
+        bulk:       ['Toplu hesablama', 'Excel ilə çoxlu işçi'],
+        transfer:   ['Transfer & Promotion', 'Rotasiya / promotion zamanı maaş'],
+        massgrowth: ['Kütləvi artımlar', 'Yemək pulu + gross artım'],
+        texnopar:   ['Texnopar', 'Local / Expat üçün xüsusi rejim']
     };
     const pt = document.getElementById('pageTitle');
-    if (pt && titles[id]) pt.innerText = titles[id];
-    // Mirror to mega-menu chips
-    document.querySelectorAll('.chip[data-tab]').forEach(c => {
+    const ps = document.getElementById('pageSubtitle');
+    if (pt && titles[id]) pt.innerText = titles[id][0];
+    if (ps && titles[id]) ps.innerText = titles[id][1];
+    // Mirror to mega-menu items
+    document.querySelectorAll('.menu-item[data-tab]').forEach(c => {
         c.classList.toggle('active', c.getAttribute('data-tab') === id);
     });
 }
